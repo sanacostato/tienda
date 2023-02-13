@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
-
+import AppRouter from './routes/AppRouter';
+import { BrowserRouter } from 'react-router-dom';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <BrowserRouter>
+   
+     <PayPalScriptProvider options={{ "client-id": "Ab0HZMWAOAxwzFHerQ0mBGr2tbD7wiC1_ZTnSJhs3BShVCwKj11XjnCgkYbUxtKFtTGczSyKT1Hdd3vR" }}>
+    <Navbar/>
+    <AppRouter/>
+    <Footer/>
+     </PayPalScriptProvider>
+     </BrowserRouter>
   );
 }
 
